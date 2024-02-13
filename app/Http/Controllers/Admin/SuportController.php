@@ -15,4 +15,18 @@ class SuportController extends Controller
         //dd($supports);
         return view('index', compact('supports'));
     }
+
+    public function create(){
+        return view('create');
+    }
+
+    public function store(Request $request, Support $support){
+
+        $dados = $request->all();
+        $dados['status'] = 'a';
+        $support = $support->create($dados);
+
+        return redirect()->route('supports.index');
+        
+    }
 }
