@@ -70,4 +70,8 @@ class SuportController extends Controller
             $support->delete();
             return redirect()->route('supports.index');
     }
+
+    public function ver_home (){
+        return view('Rizorte_ui..Home');
+    }
 }

@@ -12,3 +12,7 @@ Route::get('/support/{id}', [SuportController::class, 'show'])->name('supports.s
 Route::get('supports/{id}/edit',[SuportController::class, 'editar'])->name('supports.editar');
 Route::put('/supports/{id}', [SuportController::class, 'atualizar'])->name('supports.atualizar');
 Route::delete('/supports/{id}',[SuportController::class, 'apagar'])->name('supports.apagar');
+
+Route::get('/Home', function(){
+    return view('Rizorte_ui.front_end.Home');
+});
