@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
         <div class="col col-lg-6">
-          <a href="{{route('supports.index')}}" class="btn btn-primary"><i class="bi bi-arrow-left-circle"></i> Votar</a>
+          <a href="{{route('supports.index')}}"> Votar</a>
 
      <div class="card" style="width: 18rem;">
     <!-- Well begun is half done. - Aristotle -->

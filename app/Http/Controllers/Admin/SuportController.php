@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdateSupportRequest;
 use App\Models\Support;
 use Illuminate\Http\Request;
 use SplSubject;
@@ -21,9 +22,9 @@ class SuportController extends Controller
         return view('create');
     }
 
-    public function store(Request $request, Support $support){
+    public function store(StoreUpdateSupportRequest $request, Support $support){
 
-        $dados = $request->all();
+        $dados = $request->validated();
         $dados['status'] = 'a';
         $support = $support->create($dados);
 
@@ -52,13 +53,11 @@ class SuportController extends Controller
         return view('editar', compact('suport'));
     }
 
-    public function atualizar(Request $request,Support $support, string |int $id){
+    public function atualizar(StoreUpdateSupportRequest $request,Support $support, string |int $id){
         if (!$support = Support::find($id)) {
             return back();
         }
-        $support->update($request->only([
-            'subject','body'
-        ]));
+        $support->update($request->validated());
 
         return redirect()->route('supports.index');
     }
