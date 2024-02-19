@@ -12,8 +12,8 @@ class SuportController extends Controller
 {
     public function index(Support $support){
 
-        $supports = $support->all();
-
+        $supports = $support->orderByDesc('created_at')->paginate(3);
+        
         //dd($supports);
         return view('index', compact('supports'));
     }

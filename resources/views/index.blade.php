@@ -27,5 +27,6 @@
             @endforeach
         
     </table>
+    {{$supports->onEachSide(0)->links()}}
     </div>
 @endsection
